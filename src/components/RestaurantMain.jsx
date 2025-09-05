@@ -18,8 +18,11 @@ const RestaurantMain = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=17.4447068&lng=78.4663812&carousel=true&third_party_vendor=1"
+    // const data = await fetch(
+    //   "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=17.4447068&lng=78.4663812&carousel=true&third_party_vendor=1"
+    // );
+     const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4447068&lng=78.4663812&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
     console.log(json.data);
@@ -39,7 +42,7 @@ const RestaurantMain = () => {
 
   return (
     <>
-    <Hero/>
+      <Hero />
       <>
         {/* Search Input */}
         <div className="flex justify-center space-x-1">
@@ -48,29 +51,39 @@ const RestaurantMain = () => {
               type="text"
               placeholder="Search for restaurant, item or more"
               className="w-full outline-none text-sm text-gray-500"
-              onChange={(e)=>{setSearchText(e.target.value)}} value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+              }}
+              value={searchText}
             />
-            <FaSearch onClick={
-                  ()=>{
-                    // Filter the restaurant cards and update the UI
-                    //I need search text in inputbox
-                    console.log(searchText);
-                    // const filteredRestaurant = listofRestaurants.filter((res)=>res.info.name.includes(searchText));
-                    const filteredRestaurant = listofRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-                    // setListofRestaurants(filteredRestaurant); 
-                    setFilteredRestants(filteredRestaurant)
-                  }
-                } className="text-gray-500 ml-2" />
+            <FaSearch
+              onClick={() => {
+                // Filter the restaurant cards and update the UI
+                //I need search text in inputbox
+                console.log(searchText);
+                // const filteredRestaurant = listofRestaurants.filter((res)=>res.info.name.includes(searchText));
+                const filteredRestaurant = listofRestaurants.filter((res) =>
+                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                );
+                // setListofRestaurants(filteredRestaurant);
+                setFilteredRestants(filteredRestaurant);
+              }}
+              className="text-gray-500 ml-2"
+            />
           </div>
-          <button className="bg-green-500 my-2 px-2 text-white font-bold rounded-lg text-sm">TOP RATED RESTAURANT</button>
+          <button className="bg-green-500 my-2 px-2 text-white font-bold rounded-lg text-sm">
+            TOP RATED RESTAURANT
+          </button>
         </div>
       </>
       <div className="flex flex-wrap justify-center">
         {filteredRestants.map((restaurant) => (
-            <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}>
-                <RestarentCard  resData={restaurant} />
-            </Link>
-          
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurants/" + restaurant.info.id}
+          >
+            <RestarentCard resData={restaurant} />
+          </Link>
         ))}
         {/* <RestarentCard />
       <RestarentCard />

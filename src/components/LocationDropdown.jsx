@@ -14,7 +14,9 @@ const LocationDropdown = () => {
           onClick={() => setOpen(!open)}
         >
           <IoLocationSharp className="text-[#ff5200]" />
-          <span className="ml-2 truncate text-gray-950">Begumpet, Hyderabad,...</span>
+          <span className="ml-2 truncate text-gray-950">
+            Begumpet, Hyderabad,...
+          </span>
         </div>
 
         {/* Search Input */}
@@ -22,7 +24,7 @@ const LocationDropdown = () => {
           <input
             type="text"
             placeholder="Search for restaurant, item or more"
-            className="w-full outline-none text-sm text-gray-500"
+            className="w-full outline-none text-sm text-gray-500>"
           />
           <FaSearch className="text-gray-500 ml-2" />
         </div>
@@ -41,8 +43,10 @@ const LocationDropdown = () => {
 
           {/* Recent Searches */}
           <div className=" border-gray-300 border-t-1 ">
-            <p className="text-xs text-gray-500 font-semibold mb-2 pt-2">RECENT SEARCHES</p>
-            
+            <p className="text-xs text-gray-500 font-semibold mb-2 pt-2">
+              RECENT SEARCHES
+            </p>
+
             <div className="flex items-start space-x-2 mb-3 cursor-pointer">
               <IoLocationSharp className="text-gray-500 mt-1" />
               <span className="text-sm text-gray-900">

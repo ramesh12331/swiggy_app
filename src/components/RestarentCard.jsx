@@ -43,11 +43,20 @@ import React from "react";
 import { IoMdStar } from "react-icons/io";
 import { CDN_URL } from "../utils/constants";
 const RestarentCard = (props) => {
+  if (!props) return null;
   const { resData } = props;
   // Extract restaurant info
-  const { name, cuisines, avgRating, cloudinaryImageId, sla,locality,aggregatedDiscountInfoV3 } = resData?.info;
+  const {
+    name,
+    cuisines,
+    avgRating,
+    cloudinaryImageId,
+    sla,
+    locality,
+    aggregatedDiscountInfoV3,
+  } = resData?.info;
   return (
-    <div className="card bg-base-100 shadow-md m-3 w-[200px] sm:w-[220px] md:w-[240px] rounded-xl overflow-hidden transform transition duration-300 hover:scale-105">
+    <div className="card bg-base-100 shadow-md m-3 w-[200px] sm:w-[220px] md:w-[240px] min-h-[240px] rounded-xl overflow-hidden transform transition duration-300 hover:scale-105">
       <div className="relative">
         <img
           className="rounded-t-xl w-full h-[140px] object-cover"
@@ -68,7 +77,9 @@ const RestarentCard = (props) => {
           <span>{avgRating || "--"}</span> <span>|</span>
           <span>{sla?.slaString || "N/A"}</span>
         </p>
-        <p className="text-xs text-gray-600">{cuisines?.join(", ") || "Not available"}</p>
+        <p className="text-xs text-gray-600">
+          {cuisines?.join(", ") || "Not available"}
+        </p>
         <p className="text-xs text-gray-600">{locality}</p>
       </div>
     </div>

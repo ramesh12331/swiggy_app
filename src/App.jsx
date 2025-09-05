@@ -5,6 +5,7 @@ import Body from "./components/Body";
 import { Route, Routes } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import RestaurantMain from "./components/RestaurantMain";
+import Banner from "./components/Banner";
 
 const App = () => {
   return (
@@ -13,10 +14,11 @@ const App = () => {
       {/* <Hero/> */}
       <Routes>
         <Route path="/" element={<Body/>}/>
-        {/* <Route path="/" element={<RestaurantMain/>} */}
+       
         <Route path="/restaurants/:resId" element={<RestaurantMenu/>} />
         
       </Routes>
+      {/* <Banner/> */}
       
     </>
   );

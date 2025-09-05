@@ -15,7 +15,9 @@ const RestaurantMenu = () => {
 
   const fetchMenu = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.4447068&lng=78.4663812&restaurantId="+resId+"&submitAction=ENTER"
+      "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.4447068&lng=78.4663812&restaurantId=" +
+        resId +
+        "&submitAction=ENTER"
     );
     const json = await data.json();
     console.log(json.data);
@@ -31,7 +33,7 @@ const RestaurantMenu = () => {
   const { itemCards } =
     resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card;
 
-//   console.log(itemCards);
+  //   console.log(itemCards);
 
   return (
     <div>
@@ -48,7 +50,6 @@ const RestaurantMenu = () => {
               {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
             </li>
           ))}
-          
         </ul>
       </div>
     </div>
