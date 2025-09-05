@@ -4,6 +4,8 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import { FaSearch } from "react-icons/fa";
 import Hero from "./Hero";
 import { Link } from "react-router-dom";
+import Banner from "./Banner";
+import Shimmer from "./Shimmer";
 
 const RestaurantMain = () => {
   const [listofRestaurants, setListofRestaurants] = useState([]);
@@ -21,7 +23,7 @@ const RestaurantMain = () => {
     // const data = await fetch(
     //   "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=17.4447068&lng=78.4663812&carousel=true&third_party_vendor=1"
     // );
-     const data = await fetch(
+    const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4447068&lng=78.4663812&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
@@ -40,11 +42,14 @@ const RestaurantMain = () => {
   if (onlinestatus === false)
     return <h1>You are in offline !! check your internet connection</h1>;
 
-  return (
+  return listofRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <Hero />
       <>
         {/* Search Input */}
+
         <div className="flex justify-center space-x-1">
           <div className="flex items-center bg-white  rounded-md px-3 py-2 w-[300px] border  my-2">
             <input
@@ -75,8 +80,10 @@ const RestaurantMain = () => {
             TOP RATED RESTAURANT
           </button>
         </div>
+        <Banner />
       </>
-      <div className="flex flex-wrap justify-center">
+      <h1 className="font-bold px-24">Top restaurant chains in Hyderabad</h1>
+      <div className="flex flex-wrap justify-center py-6">
         {filteredRestants.map((restaurant) => (
           <Link
             key={restaurant.info.id}

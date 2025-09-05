@@ -42,6 +42,11 @@
 import React from "react";
 import { IoMdStar } from "react-icons/io";
 import { CDN_URL } from "../utils/constants";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaUtensils } from "react-icons/fa";
+import { FaTag } from "react-icons/fa";
+import { MdLocalOffer } from "react-icons/md";
+import { FaPercent } from "react-icons/fa";
 const RestarentCard = (props) => {
   if (!props) return null;
   const { resData } = props;
@@ -64,7 +69,11 @@ const RestarentCard = (props) => {
           alt="food"
         />
         <div className="absolute bottom-0 text-shadow-2xs/100 w-full ">
-          <p className="font-bold p-1 text-white text-[13px] space-x-1">
+          <p className="font-bold p-1 text-white text-[13px] flex items-center space-x-1">
+            {/* <FaTag className="text-orange-500 text-sm" /> */}
+            <MdLocalOffer className="text-green-400 text-shadow-2xs/100 text-sm" />
+            
+
             <span>{aggregatedDiscountInfoV3?.header}</span>
             <span>{aggregatedDiscountInfoV3?.subHeader || "offer"}</span>
           </p>
@@ -77,10 +86,11 @@ const RestarentCard = (props) => {
           <span>{avgRating || "--"}</span> <span>|</span>
           <span>{sla?.slaString || "N/A"}</span>
         </p>
-        <p className="text-xs text-gray-600">
-          {cuisines?.join(", ") || "Not available"}
+        <p className="text-xs text-gray-600 flex space-x-1 items-center">
+          <FaUtensils className="text-gray-600 text-sm" />
+          <span>{cuisines?.join(", ") || "Not available"}</span>
         </p>
-        <p className="text-xs text-gray-600">{locality}</p>
+        <p className="text-xs text-gray-600 flex space-x-1 items-center"><FaMapMarkerAlt className="text-red-500 text-xs " /><span className="font-semibold">{locality}</span></p>
       </div>
     </div>
   );

@@ -1,41 +1,77 @@
+// import React, { useEffect, useState } from "react";
+// import { CDN_URL } from "../utils/constants";
+
+// const Banner = () => {
+//   const [bannerImg, setBannerImg] = useState([]);
+//   useEffect(() => {
+//     fetchData();
+//   }, []);
+
+//   const fetchData = async () => {
+//     const data = await fetch(
+//       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4447068&lng=78.4663812&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+//     );
+//     const json = await data.json();
+//     console.log(json.data);
+//     setBannerImg(
+//       json?.data?.cards[0].card?.card?.gridElements?.infoWithStyle?.info
+//     );
+
+//   };
+
+//   return (
+//     <>
+//       <div className="flex px-24 overflow-x-auto space-x-4 scrollbar-hide">
+//         {bannerImg.map((banner, i) => (
+//           <div key={i}>
+//             <img src={`${CDN_URL}${banner?.imageId}`} className="w-40" alt="" />
+//           </div>
+//         ))}
+//       </div>
+//       {/* <p>{bannerImg?.info[0]?.imageId}</p> */}
+//     </>
+//   );
+// };
+
+// export default Banner;
+
+// *************
+
 import React, { useEffect, useState } from "react";
 import { CDN_URL } from "../utils/constants";
 
 const Banner = () => {
   const [bannerImg, setBannerImg] = useState([]);
+
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=17.4447068&lng=78.4663812&carousel=true&third_party_vendor=1"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4447068&lng=78.4663812&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json.data);
     setBannerImg(
-      json?.data?.cards[0].card?.card?.gridElements?.infoWithStyle?.info
+      json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info || []
     );
-    // console.log(json.data.cards[1]);
-    // setListofRestaurants(
-    //   json?.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    // );
-    // setFilteredRestants(
-    //   json?.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    // );
   };
-  // if (!bannerImg) return null;
+
   return (
-    <>
-      <div className="flex px-24 overflow-x-auto space-x-4 scrollbar-hide">
+    <div className="px-24 my-6">
+      <h1 className="font-bold">what's on your mind?</h1>
+      <div className="flex overflow-x-auto space-x-4 scrollbar-hide ">
         {bannerImg.map((banner, i) => (
-          <div key={i}>
-            <img src={`${CDN_URL}${banner?.imageId}`} className="w-30" alt="" />
+          <div key={i} className="flex-shrink-0">
+            <img
+              src={`${CDN_URL}${banner?.imageId}`}
+              className="w-20 h-24 object-cover rounded-lg"
+              alt=""
+            />
           </div>
         ))}
       </div>
-      {/* <p>{bannerImg?.info[0]?.imageId}</p> */}
-    </>
+    </div>
   );
 };
 
