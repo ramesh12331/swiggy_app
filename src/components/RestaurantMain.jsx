@@ -51,7 +51,7 @@ const RestaurantMain = () => {
         {/* Search Input */}
 
         <div className="flex justify-center space-x-1">
-          <div className="flex items-center bg-white  rounded-md px-3 py-2 w-[300px] border  my-2">
+          <div className="flex items-center bg-white  rounded-md px-3 py-2 w-[300px] border  my-6">
             <input
               type="text"
               placeholder="Search for restaurant, item or more"
@@ -76,9 +76,9 @@ const RestaurantMain = () => {
               className="text-gray-500 ml-2"
             />
           </div>
-          <button className="bg-green-500 my-2 px-2 text-white font-bold rounded-lg text-sm">
+          {/* <button className="bg-green-500 my-2 px-2 text-white font-bold rounded-lg text-sm">
             TOP RATED RESTAURANT
-          </button>
+          </button> */}
         </div>
         <Banner />
       </>

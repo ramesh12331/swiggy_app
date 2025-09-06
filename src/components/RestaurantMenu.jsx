@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
+import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
+  const [showIndex,setShowIndex] = useState(null)
 
   // const {res} = useParams();
   // console.log(params);
@@ -34,15 +36,24 @@ const RestaurantMenu = () => {
     resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card;
 
   //   console.log(itemCards);
+  const categories =
+    resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+      (c) =>
+        c.card?.["card"]?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
 
   return (
     <div>
-      <div>
-        <h1>{name || "Restaurant Name"}</h1>
+      <div className="text-center">
+        <h1 className="font-bold my-6 text-2xl">{name || "Restaurant Name"}</h1>
 
-        <h2>Cuisines: {cuisines?.join(", ") || "Not available"}</h2>
-        <p>{costForTwoMessage || "Cost for two not available"}</p>
-        <h2>Menu</h2>
+        <h2 className="font-bold text-lg">
+          Cuisines: {cuisines?.join(", ") || "Not available"} -{" "}
+          <span>{costForTwoMessage || "Cost for two not available"}</span>
+        </h2>
+        {/* <p>{costForTwoMessage || "Cost for two not available"}</p> */}
+        {/* <h2>Menu</h2>
         <ul>
           {itemCards.map((item) => (
             <li key={item.card.info.id}>
@@ -50,7 +61,17 @@ const RestaurantMenu = () => {
               {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
             </li>
           ))}
-        </ul>
+        </ul> */}
+        {/* categories accordions */}
+        {categories.map((category, i) => (
+          // Controlled Component
+          <RestaurantCategory
+            key={category?.card?.card?.categoryId}
+            data={category?.card?.card}
+            showItems={i === showIndex ? true : false}
+            setShowIndex={() => setShowIndex(i)}
+          />
+        ))}
       </div>
     </div>
   );
