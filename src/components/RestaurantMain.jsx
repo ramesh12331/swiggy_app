@@ -20,9 +20,6 @@ const RestaurantMain = () => {
   }, []);
 
   const fetchData = async () => {
-    // const data = await fetch(
-    //   "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=17.4447068&lng=78.4663812&carousel=true&third_party_vendor=1"
-    // );
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4447068&lng=78.4663812&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
@@ -76,9 +73,6 @@ const RestaurantMain = () => {
               className="text-gray-500 ml-2"
             />
           </div>
-          {/* <button className="bg-green-500 my-2 px-2 text-white font-bold rounded-lg text-sm">
-            TOP RATED RESTAURANT
-          </button> */}
         </div>
         <Banner />
       </>
@@ -92,15 +86,6 @@ const RestaurantMain = () => {
             <RestarentCard resData={restaurant} />
           </Link>
         ))}
-        {/* <RestarentCard />
-      <RestarentCard />
-      <RestarentCard />
-      <RestarentCard />
-      <RestarentCard />
-      <RestarentCard />
-      <RestarentCard />
-      <RestarentCard />
-      <RestarentCard /> */}
       </div>
     </>
   );

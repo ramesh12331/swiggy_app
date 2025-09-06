@@ -4,10 +4,7 @@ import Shimmer from "./Shimmer";
 import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
-  const [showIndex,setShowIndex] = useState(null)
-
-  // const {res} = useParams();
-  // console.log(params);
+  const [showIndex, setShowIndex] = useState(null);
 
   const { resId } = useParams();
 
@@ -52,16 +49,7 @@ const RestaurantMenu = () => {
           Cuisines: {cuisines?.join(", ") || "Not available"} -{" "}
           <span>{costForTwoMessage || "Cost for two not available"}</span>
         </h2>
-        {/* <p>{costForTwoMessage || "Cost for two not available"}</p> */}
-        {/* <h2>Menu</h2>
-        <ul>
-          {itemCards.map((item) => (
-            <li key={item.card.info.id}>
-              {item.card.info.name} - {" Rs."}{" "}
-              {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
-            </li>
-          ))}
-        </ul> */}
+
         {/* categories accordions */}
         {categories.map((category, i) => (
           // Controlled Component

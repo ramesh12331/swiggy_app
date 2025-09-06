@@ -35,31 +35,7 @@ const Hero = () => {
           <img src="card3.avif" className="w-[25%] h-[25%]" alt="" />
         </div>
 
-        {/* <div className="flex flex-wrap justify-center gap-4">
-        <img
-          src="card1.avif"
-          className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 object-contain"
-          alt="card1"
-        />
-        <img
-          src="card2.avif"
-          className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 object-contain"
-          alt="card2"
-        />
-        <img
-          src="card3.avif"
-          className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 object-contain"
-          alt="card3"
-        />
-      </div> */}
-        {/* <div className="absolute top-20 flex ">
-          <div>
-            <img src="Veggies_new.avif" className="w-[10%]" alt="" />
-          </div>
-          <div>
-            <img src="Sushi_replace.avif" className="w-[10%] float-end right-0" alt="" />
-          </div>
-        </div> */}
+        
       </div>
     </>
   );

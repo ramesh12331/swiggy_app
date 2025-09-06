@@ -1,44 +1,3 @@
-// import React from "react";
-// import { IoMdStar } from "react-icons/io";
-
-// const RestarentCard = () => {
-//   return (
-//     <div className="card bg-base-100 shadow-sm m-4 p-2 w-[200px] rounded">
-//       <div className="relative">
-//         <img
-//           className="rounded-xl"
-
-//           src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/12/9/625b2429-2fae-40b5-a232-c6a53803f6ea_698238.JPG"
-//           alt="food"
-//         />
-//         <div className="absolute bottom-0">
-//           <p className="font-bold p-2 text-gray-800 text-[14px]">
-//             ITEMS AT $69
-//           </p>
-//         </div>
-//       </div>
-//       <div className="p-2">
-//         <h2 className=" text-[12px] font-bold">
-//           KFC
-//           {/* <div className="badge badge-secondary">NEW</div> */}
-//         </h2>
-//         <p className="text-[12px] flex items-center space-x-1 font-semibold">
-//           <span className="">
-//             <IoMdStar className="bg-green-600 rounded-full text-white p-[1px]"/>
-//           </span>{" "}
-//            <span> 4.3</span> <span>|</span><span>25-30min</span>
-//         </p>
-//         <p className="text-xs">Biryani,Biryani</p>
-//         <p className="text-xs">Hyderabad</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default RestarentCard;
-
-// *************************
-
 import React from "react";
 import { IoMdStar } from "react-icons/io";
 import { CDN_URL } from "../utils/constants";
@@ -72,7 +31,6 @@ const RestarentCard = (props) => {
           <p className="font-bold p-1 text-white text-[13px] flex items-center space-x-1">
             {/* <FaTag className="text-orange-500 text-sm" /> */}
             <MdLocalOffer className="text-green-400 text-shadow-2xs/100 text-sm" />
-            
 
             <span>{aggregatedDiscountInfoV3?.header}</span>
             <span>{aggregatedDiscountInfoV3?.subHeader || "offer"}</span>
@@ -90,7 +48,10 @@ const RestarentCard = (props) => {
           <FaUtensils className="text-gray-600 text-sm" />
           <span>{cuisines?.join(", ") || "Not available"}</span>
         </p>
-        <p className="text-xs text-gray-600 flex space-x-1 items-center"><FaMapMarkerAlt className="text-red-500 text-xs " /><span className="font-semibold">{locality}</span></p>
+        <p className="text-xs text-gray-600 flex space-x-1 items-center">
+          <FaMapMarkerAlt className="text-red-500 text-xs " />
+          <span className="font-semibold">{locality}</span>
+        </p>
       </div>
     </div>
   );
