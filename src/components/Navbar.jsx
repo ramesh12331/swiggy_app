@@ -69,7 +69,7 @@ const Navbar = () => {
               <Link to="/cart" className="relative flex items-center">
                 <FiShoppingCart className="size-5" />
                 {cartItems.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-white text-[#ff5200] text-[10px] font-bold rounded-full px-1.5 py-0.5 shadow">
+                  <span className="absolute -top-2 -right-2 bg-white text-[#ff5200] text-[10px] font-bold rounded-full px-1 py-0.5 shadow">
                     {cartItems.length}
                   </span>
                 )}

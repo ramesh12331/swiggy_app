@@ -21,15 +21,15 @@ const ItemList = ({ items }) => {
             {/* Left side - Text */}
             <div className="w-full md:w-8/12">
               <div className="flex flex-col">
-                <span className="font-semibold text-base md:text-lg text-gray-800">
+                <span className="font-bold text-base md:text-sm text-gray-800">
                   {info.name}
                 </span>
-                <span className="text-green-600 font-medium text-sm md:text-base">
+                <span className="  text-sm font-semibold">
                   ₹{(info.price || info.defaultPrice) / 100}
                 </span>
               </div>
               {info.description && (
-                <p className="text-xs md:text-sm text-gray-500 mt-1 line-clamp-2">
+                <p className="text-xs md:text-xm text-gray-500 mt-2 line-clamp-2">
                   {info.description}
                 </p>
               )}
@@ -46,7 +46,7 @@ const ItemList = ({ items }) => {
               )}
               <button
                 onClick={() => handleAddItem(item)}
-                className="absolute -bottom-3 px-4 py-1.5 bg-lime-950 text-white text-sm rounded-lg shadow hover:bg-lime-800 transition"
+                className="absolute -bottom-3 px-4 bg-white  text-green-800 font-bold  text-sm rounded-lg shadow-2xl/100 border border-gray-400 hover:bg-gray-200 transition cursor-pointer"
               >
                 Add +
               </button>

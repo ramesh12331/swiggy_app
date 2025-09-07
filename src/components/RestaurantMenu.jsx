@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import RestaurantCategory from "./RestaurantCategory";
+import { FaUtensils } from "react-icons/fa";
+import { PiChefHatThin } from "react-icons/pi";
+
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
   const [showIndex, setShowIndex] = useState(null);
@@ -42,13 +45,19 @@ const RestaurantMenu = () => {
 
   return (
     <div>
-      <div className="text-center">
-        <h1 className="font-bold my-6 text-2xl">{name || "Restaurant Name"}</h1>
+      <div className="">
+        <div className="w-full md:w-6/12 mx-auto">
+          <h1 className="font-bold mt-6 text-xl flex items-center gap-2">
+            <PiChefHatThin className="text-red-500" />
+            {name || "Restaurant Name"}
+          </h1>
 
-        <h2 className="font-bold text-lg">
-          Cuisines: {cuisines?.join(", ") || "Not available"} -{" "}
-          <span>{costForTwoMessage || "Cost for two not available"}</span>
-        </h2>
+          <h2 className="flex items-center gap-2">
+            <FaUtensils className="text-green-600" />
+           <span className="font-bold text-md"> Cuisines:</span> <span className="text-xs"> {cuisines?.join(", ") || "Not available"} -{" "}</span>
+            <span className="text-xs">{costForTwoMessage || "Cost for two not available"}</span>
+          </h2>
+        </div>
 
         {/* categories accordions */}
         {categories.map((category, i) => (
