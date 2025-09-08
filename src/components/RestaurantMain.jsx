@@ -77,7 +77,7 @@ const RestaurantMain = () => {
         <Banner />
       </>
       <h1 className="font-bold px-24">Top restaurant chains in Hyderabad</h1>
-      <div className="flex flex-wrap justify-center py-6">
+      <div className="flex flex-wrap justify-center py-6 mb-10">
         {filteredRestants.map((restaurant) => (
           <Link
             key={restaurant.info.id}
