@@ -24,6 +24,7 @@ const App = () => {
         <Route path="/cart" element={<Cart/>} />
       </Routes>
       {/* <Banner/> */}
+      <br/><br/>
       <Footer />
     </Provider>
       
